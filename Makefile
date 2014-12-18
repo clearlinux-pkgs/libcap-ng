@@ -1,0 +1,4 @@
+PKG_NAME := libcap-ng
+URL := https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.7.tar.gz
+
+include ../common/Makefile.common
