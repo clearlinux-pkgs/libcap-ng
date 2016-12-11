@@ -4,7 +4,7 @@
 #
 Name     : libcap-ng
 Version  : 0.7.8
-Release  : 18
+Release  : 19
 URL      : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.8.tar.gz
 Source0  : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.8.tar.gz
 Summary  : An alternate posix capabilities library
@@ -85,8 +85,8 @@ rm -rf %{buildroot}
 %files dev
 %defattr(-,root,root,-)
 /usr/include/*.h
-/usr/lib64/*.so
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libcap-ng.so
+/usr/lib64/pkgconfig/libcap-ng.pc
 /usr/share/aclocal/*.m4
 
 %files doc
@@ -96,4 +96,5 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libcap-ng.so.0
+/usr/lib64/libcap-ng.so.0.0.0
