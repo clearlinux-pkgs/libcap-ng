@@ -4,7 +4,7 @@
 #
 Name     : libcap-ng
 Version  : 0.7.10
-Release  : 31
+Release  : 32
 URL      : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.10.tar.gz
 Source0  : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.10.tar.gz
 Summary  : An alternate posix capabilities library
@@ -92,6 +92,7 @@ man components for the libcap-ng package.
 
 %prep
 %setup -q -n libcap-ng-0.7.10
+cd %{_builddir}/libcap-ng-0.7.10
 pushd ..
 cp -a libcap-ng-0.7.10 build32
 popd
@@ -101,11 +102,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570072557
+export SOURCE_DATE_EPOCH=1604441797
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -Os -fdata-sections -ffunction-sections -fno-lto -fno-semantic-interposition "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -124,16 +125,16 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 cd ../build32;
-make VERBOSE=1 V=1 %{?_smp_mflags} check || :
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1570072557
+export SOURCE_DATE_EPOCH=1604441797
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcap-ng
-cp COPYING %{buildroot}/usr/share/package-licenses/libcap-ng/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libcap-ng/COPYING.LIB
+cp %{_builddir}/libcap-ng-0.7.10/COPYING %{buildroot}/usr/share/package-licenses/libcap-ng/dfac199a7539a404407098a2541b9482279f690d
+cp %{_builddir}/libcap-ng-0.7.10/COPYING.LIB %{buildroot}/usr/share/package-licenses/libcap-ng/3ac522f07da0f346b37b29cd73a60f79e992ffba
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -199,8 +200,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libcap-ng/COPYING
-/usr/share/package-licenses/libcap-ng/COPYING.LIB
+/usr/share/package-licenses/libcap-ng/3ac522f07da0f346b37b29cd73a60f79e992ffba
+/usr/share/package-licenses/libcap-ng/dfac199a7539a404407098a2541b9482279f690d
 
 %files man
 %defattr(0644,root,root,0755)
