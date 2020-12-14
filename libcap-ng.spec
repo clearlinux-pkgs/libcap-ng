@@ -4,7 +4,7 @@
 #
 Name     : libcap-ng
 Version  : 0.7.10
-Release  : 33
+Release  : 34
 URL      : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.10.tar.gz
 Source0  : https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.7.10.tar.gz
 Summary  : An alternate posix capabilities library
